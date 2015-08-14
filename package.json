@@ -1,22 +1,21 @@
 {
   "name": "reveal.js",
   "version": "3.1.0",
-  "description": "The HTML Presentation Framework",
-  "homepage": "http://lab.hakim.se/reveal-js",
-  "subdomain": "revealjs",
-  "main": "js/reveal.js",
+  "description": "",
+  "homepage": "",
+  // "subdomain": "revealjs",
+  "main": "s",
   "scripts": {
     "test": "grunt test",
     "start": ""
   },
   "author": {
-    "name": "Hakim El Hattab",
-    "email": "hakim.elhattab@gmail.com",
-    "web": "http://hakim.se"
+    "name": "Aysegul Yonet",
+    "email": "aysegulyonet@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hakimel/reveal.js.git"
+    "url": ""
   },
   "engines": {
     "node": "~0.10.0"
@@ -43,7 +42,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/hakimel/reveal.js/blob/master/LICENSE"
+      "url": ""
     }
   ]
 }
