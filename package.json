@@ -7,7 +7,7 @@
   "main": "s",
   "scripts": {
     "test": "grunt test",
-    "start": ""
+    "start": "grunt serve"
   },
   "author": {
     "name": "Aysegul Yonet",
@@ -45,4 +45,5 @@
       "url": ""
     }
   ]
+
 }
