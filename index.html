@@ -261,11 +261,73 @@ group.rotation.y += 0.1;
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
 					You can animate the group together. Child object will inherit the transformation, if they have their own transformation, transformations will be combined.
+					//example
 					</aside>
 				</section>
 				<!-- /Three.js -->
 
 				<!-- AngularJS -->
+				<section>
+					<h3>Why AngularJS?</h3>
+					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
+<body ng-app="myApp">
+		<p>1 + 2 = {{ 1 + 2 }}</p>
+</body>
+					</pre></code>
+					<p><a href="" target="_blank"></a></p>
+					<aside class="notes">
+				 Lot's of essential features like mobile gestures, animations, filtering, routing, data binding, security, internationalization, and beautiful UI components.
+					</aside>
+					</section>
+					<section>
+						<h3></h3>
+						<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
+<div ng-app>
+		<input type="text" ng-model="name"/> 
+	 <p>Hello {{name}}</p>
+</div>
+						</pre></code>
+						<p><a href="http://jsfiddle.net/yonet3d/42y48ewm/9/" target="_blank">jsFiddle</a></p>
+						<aside class="notes">
+					
+						</aside>
+					</section>
+					<section>
+						<h3>Controllers</h3>
+						<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
+<body ng-app="myApp">
+	<div ng-controller="mainController">
+		<p>The answer is,{{ meaning }}</p>
+	</div>	
+</body>
+						</pre></code>
+
+						<p><a href="" target="_blank"></a></p>
+						<aside class="notes">
+					It is nothing but an extended version of the HTML attributes with the prefix ng added to it.
+						</aside>
+				</section>
+				<section>
+					<h3></h3>
+					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
+var app = angular.module("firstApp", []);
+app.controller("MainController", function($scope){
+    //initial value
+		$scope.meaning = 42;
+        
+    $scope.changeMeaning = function(){
+			$scope.meaning = Math.floor(Math.random() * 42);
+    };
+        		
+})
+					</pre></code>
+					<p><a href="http://jsfiddle.net/yonet3d/42y48ewm/16/" target="_blank">jsFiddle</a></p>
+					<aside class="notes">
+				Controllers Set up the initial state of the $scope object.
+			Add behavior to the $scope object.
+					</aside>
+				</section>
+	
 				<section>
 					<h3>Directives</h3>
 					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
@@ -273,20 +335,97 @@ angular.module('myApp', [])
 	.directive('globe', function() {
 		return {
 			restrict: 'E',
-			scope: {
-				data: '='
-			},
-			templateUrl: 'templates/globe.html'
+			template:'Name: {{customer.name}} Address: {{customer.address}}'
 		}
 })
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
-				Let’s understand what directives mean here. It is nothing but an extended version of the HTML attributes with the prefix ng added to it.
+				html, controller and a directive creates a component. Let's talk about how we create a custom component. 
 				When you talk of directives, you will see an underlying scope alongside each directive. Data binding is an important element of directive declaration.
 					</aside>
 				</section>
+				<section>
+					<h3></h3>
+					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
+<globe info="world"></globe>
+					</pre></code>
+					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
+angular.module('myApp', [])
+	.controller('MainController', function($scope){
+		$scope.world = {name: 'earth'};
 
+	})
+	.directive('globe', function() {
+		return {
+			restrict: 'E',
+			scope: {
+				globe: '=info'
+			},
+			template:'Hello, {{globe.name}}'
+		}
+})
+					</pre></code>
+					<p><a href="http://jsfiddle.net/yonet3d/42y48ewm/17/" target="_blank">jsFiddle</a></p>
+					<aside class="notes">
+				
+					</aside>
+				</section>
+				<section>
+					<h3>Linking function</h3>
+					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
+angular.module('myApp', [])
+
+	.directive('globe', function() {
+		return {
+			restrict: 'E',
+			scope: {
+				globe: '=info'
+			},
+			templateUrl:'templates/globe.html',
+			link: function(element, attr, scope) {
+				//component functionality goes here...
+			}
+		}
+})
+					</pre></code>
+					<p><a href="" target="_blank"></a></p>
+					<aside class="notes">
+					//Step 0
+					</aside>
+				</section>
+				<section>
+					<h3>Angular 2</h3>
+					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
+@Component({selector: 'globe'})
+@View({template: '<h1>Hi {{ word.name }}</h1>'})
+class MyAppComponent {
+  constructor() {
+    this.word = {name: 'earth'};
+  }
+}
+					</pre></code>
+					<p><a href="" target="_blank"></a></p>
+					<aside class="notes">
+				
+					</aside>
+				</section>
+				<!-- /AngularJS -->
+				<section>
+					<h3>Resources</h3>
+					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
+				
+					</pre></code>
+					<ul>
+						<li class="fragment"><a href="http://threejs.org/docs/" target="_blank">Three.js Docs</a></li>
+						<li class="fragment"><a href="http://threejs.org/examples/" target="_blank">Three.js Examples</a></li>
+						<li class="fragment"><a href="http://www.amazon.com/Programming-Applications-HTML5-WebGL-Visualization/dp/1449362966/ref=asap_bc?ie=UTF8" target="_blank">Programming 3D Applications with HTML5 and WebGL</a></li>
+						<li class="fragment"><a href="http://angularconnect.com/" target="_blank">AngularConnect</a></li>
+					</ul>
+					<aside class="notes">
+				
+					</aside>
+				</section>
 			
 
 				<!-- The End -->
