@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -42,15 +42,53 @@
 			<div class="slides">
 				<!-- Created By -->
 				<section>
-					<h1></h1>
-					<h3></h3>
+					<h3>3D Components with AngularJs</h3>
 					<p>
-						<small>Created by <a href="https://www.linkedin.com/in/aysegulyonet" target="_blank">Aysegul Yonet</a> / <a href="http://twitter.com/AysegulYonet" target="_blank">@AysegulYonet</a></small>
+						Created by <a href="https://www.linkedin.com/in/aysegulyonet" target="_blank">Aysegul Yonet</a> / <a href="http://twitter.com/AysegulYonet" target="_blank">@AysegulYonet</a>
+						<p>Slides: 
+						<a href="" target="_blank">bit.ly/wu-threejs-angular</a></p>
 					</p>
 				</section>
 				<!-- /Created By -->
 
+				<section>
+					<h3></h3>
+					<ul>
+						<li class="fragment">Three.js</li>
+						<li class="fragment">AngularJS</li>
+						<li class="fragment">Three.js + AngularJS = 3D components</li>
+					</ul>
+					
+					<aside class="notes">
+					Creating a scene with Three.js. AngularJS fundamentals. Anatomy of a component.
+
+					</aside>
+				</section>
+				<section>
+					<h3></h3>
+					<p><a href="http://tweetmigration.herokuapp.com/#style=clouds" target="_blank">Tweet Migration</a></p>
+					
+					<img src="images/world.png" alt="">
+					<p>Github: <a href="https://github.com/Yonet/TweetMigration" target="_blank"> github.com/Yonet/TweetMigration</a></p>
+					<aside class="notes">
+				
+					</aside>
+				</section>
+
 				<!-- Three.js -->
+				<section>
+					<h3>Why Three.js?</h3>
+					<ul>
+						<li class="fragment">Faster to write</li>
+						<li class="fragment">Faster to learn</li>
+						<li class="fragment">It is fast</li>
+					</ul>
+					
+					<p class="fragment"><a href="https://armsglobe.chromeexperiments.com/" target="_blank">Arms Globe</a></p>
+					<aside class="notes">
+					WebGL is the 3D API that allows access to full capabilities of GPU to create smooth 3D animations, like 2D Canvas API, it is all done through JS. Three.js is a library that provides commonly used objects and methods. 300 lines of code vs 20 lines. Intuitive, using best-practice engine techniques. Open sourced and great community. 
+					</aside>
+				</section>
 				<section>
 					<h3>3D scene with three.JS</h3>
 					<ul>
@@ -58,9 +96,9 @@
 						<li class="fragment">Camera</li>
 						<li class="fragment">Renderer</li>
 					</ul>
-					<p><a href="" target="_blank"></a></p>
+					
 					<aside class="notes">
-				
+				To actually be able to display anything with Three.js, we need three things: A scene, a camera, and a renderer so we can render the scene with the camera.
 					</aside>
 				</section>
 				<section>
@@ -72,7 +110,7 @@ var scene = new THREE.Scene();
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
-				To actually be able to display anything with Three.js, we need three things: A scene, a camera, and a renderer so we can render the scene with the camera.
+				 A scene is a top level object that we need to add other 3D objects to. Basicly a stage. 
 					</aside>
 				</section>
 
@@ -80,7 +118,7 @@ var scene = new THREE.Scene();
 				<section>
 					<h3>Camera</h3>
 					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
-
+//FoV, AR, NC, FC
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
 					</pre></code>
@@ -104,7 +142,7 @@ document.body.appendChild( renderer.domElement );
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
-					In addition to the WebGLRenderer we use here, Three.js comes with a few others, often used as fallbacks for users with older browsers or for those who don't have WebGL support for some reason.
+					In addition to the WebGLRenderer we use here, Three.js comes with a few others, often used as fallbacks for users with older browsers or for those who don't have WebGL support for some reason. 
 					In addition to creating the renderer instance, we also need to set the size at which we want it to render our app. It's a good idea to use the width and height of the area we want to fill with our game - in this case, the width and height of the browser window. For performance intensive games, you can also give setSize smaller values, like window.innerWidth/2 and window.innerHeight/2, for half the resolution. This does not mean that the game will only fill half the window, but rather look a bit blurry and scaled up.
 Last but not least, we add the renderer element to our HTML document. This is a <canvas> element the renderer uses to display the scene to us.
 
@@ -123,7 +161,7 @@ document.body.appendChild( renderer.domElement );
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
-				
+				And we have darkness. We need an object.
 					</aside>
 				</section>
 				<section>
@@ -134,7 +172,7 @@ document.body.appendChild( renderer.domElement );
 						<li class="fragment">Mesh</li>
 					</ul>
 					<aside class="notes">
-				
+				 
 					</aside>
 				</section>
 				<section>
@@ -144,7 +182,7 @@ var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
-				To create a cube, we need a BoxGeometry. This is an object that contains all the points (vertices) and fill (faces) of the cube. We'll explore this more in the future.
+				To create a cube, we need a BoxGeometry. This is an object that contains all the points (vertices) and fill (faces) of the cube.
 					</aside>
 				</section>
 
@@ -155,7 +193,7 @@ var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
-				In addition to the geometry, we need a material to color it. Three.js comes with several materials, but we'll stick to the MeshBasicMaterial for now. All materials take an object of properties which will be applied to them. To keep things very simple, we only supply a color attribute of 0x00ff00, which is green. This works the same way that colors work in CSS or Photoshop (hex colors)
+				In addition to the geometry, we need a material to color it. Three.js comes with several materials, but we'll stick to the MeshBasicMaterial for now. All materials take an object of properties which will be applied to them. To keep things very simple, we only supply a color attribute of 0x00ff00, which is green. This works the same way that colors work in CSS or Photoshop (hex colors).
 					</aside>
 				</section>
 				<section>
@@ -197,7 +235,7 @@ render();
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
-					This will create a loop that causes the renderer to draw the scene 60 times per second. If you're new to writing games in the browser, you might say "why don't we just create a setInterval? The thing is - we could, but requestAnimationFrame has a number of advantages. Perhaps the most important one is that it pauses when the user navigates to another browser tab, hence not wasting their precious processing power and battery life.
+					This will create a loop that causes the renderer to draw the scene 60 times per second. If you're new to animation, you might say "why don't we just create a setInterval? The thing is - we could, but requestAnimationFrame has a number of advantages. Perhaps the most important one is that it pauses when the user navigates to another browser tab, hence not wasting their precious processing power and battery life.
 					</aside>
 				</section>
 				<section>
@@ -208,7 +246,7 @@ cube.rotation.y += 0.1;
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
-				This will be run every frame (60 times per second), and give the cube a nice rotation animation. Basically, anything you want to move or change while the game / app is running has to go through the render loop. You can of course call other functions from there, so that you don't end up with a render function that's hundreds of lines.
+				This will be run every frame (60 times per second), and give the cube a nice rotation animation. Basically, anything you want to move or change while the app is running has to go through the render loop. 
 					</aside>
 				</section>
 				<section>
@@ -254,9 +292,9 @@ angular.module('myApp', [])
 				<!-- The End -->
 				<section style="text-align: left;">
 					<h1>THE END</h1>
-					<p>
-						- <a href="" target="_blank">Slides</a><br>
-						- <a href="http://twitter.com/AysegulYonet" target="_blank">@AysegulYonet</a>
+					<p>Slides: 
+						<a href="" target="_blank">bit.ly/wu-threejs-angular</a><br>
+						<a href="http://twitter.com/AysegulYonet" target="_blank">@AysegulYonet</a>
 					</p>
 				</section>
 				<!-- /The End -->
