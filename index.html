@@ -145,7 +145,7 @@ document.body.appendChild( renderer.domElement );
 					<aside class="notes">
 					In addition to the WebGLRenderer we use here, Three.js comes with a few others, often used as fallbacks for users with older browsers or for those who don't have WebGL support for some reason. 
 					In addition to creating the renderer instance, we also need to set the size at which we want it to render our app. It's a good idea to use the width and height of the area we want to fill with our game - in this case, the width and height of the browser window. For performance intensive games, you can also give setSize smaller values, like window.innerWidth/2 and window.innerHeight/2, for half the resolution. This does not mean that the game will only fill half the window, but rather look a bit blurry and scaled up.
-Last but not least, we add the renderer element to our HTML document. This is a <canvas> element the renderer uses to display the scene to us.
+Last but not least, we add the renderer element to our HTML document. This is a 'canvas' element the renderer uses to display the scene to us.
 
 				
 					</aside>
@@ -179,11 +179,13 @@ document.body.appendChild( renderer.domElement );
 				<section>
 					<h3>Geometry</h3>
 					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
+//width, height, depth
 var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 					</pre></code>
-					<p><a href="" target="_blank"></a></p>
+					<p><a href="https://github.com/mrdoob/three.js/blob/master/src/extras/geometries/BoxGeometry.js" target="_blank">Source Code</a></p>
 					<aside class="notes">
 				To create a cube, we need a BoxGeometry. This is an object that contains all the points (vertices) and fill (faces) of the cube.
+				For Sphere: radius, widthSegments, heightSegments.
 					</aside>
 				</section>
 
@@ -242,8 +244,8 @@ render();
 				<section>
 					<h3>Animation</h3>
 					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
-cube.rotation.x += 0.1;
-cube.rotation.y += 0.1;
+cube.rotation.x += 0.01;
+cube.rotation.y += 0.01;
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
@@ -271,13 +273,13 @@ group.rotation.y += 0.1;
 				<section>
 					<h3>What is AngularJS</h3>
 					<ul>
-						<li>Controllers</li>
-						<li>Directives</li>
-						<li>Services</li>
+						<li class="fragment">Controllers</li>
+						<li class="fragment">Directives</li>
+						<li class="fragment">Services</li>
 					</ul>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
-				
+				Lot's of essential features like mobile gestures, animations, filtering, routing, data binding, security, internationalization, and beautiful UI components.
 					</aside>
 				</section>
 				<section>
@@ -291,7 +293,7 @@ group.rotation.y += 0.1;
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
-				 Lot's of essential features like mobile gestures, animations, filtering, routing, data binding, security, internationalization, and beautiful UI components.
+				 
 					</aside>
 					</section>
 					<section>
@@ -304,7 +306,7 @@ group.rotation.y += 0.1;
 						</pre></code>
 						<p><a href="http://jsfiddle.net/yonet3d/42y48ewm/9/" target="_blank">jsFiddle</a></p>
 						<aside class="notes">
-					
+					It is nothing but an extended version of the HTML attributes with the prefix ng added to it.
 						</aside>
 					</section>
 					<section>
@@ -319,7 +321,7 @@ group.rotation.y += 0.1;
 
 						<p><a href="" target="_blank"></a></p>
 						<aside class="notes">
-					It is nothing but an extended version of the HTML attributes with the prefix ng added to it.
+					
 						</aside>
 				</section>
 				<section>
@@ -356,7 +358,7 @@ angular.module('myApp', [])
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
 				html, controller and a directive creates a component. Let's talk about how we create a custom component. 
-				When you talk of directives, you will see an underlying scope alongside each directive. Data binding is an important element of directive declaration.
+				When you talk of directives, you will see an underlying scope alongside each directive. Data binding is an important element of directive declaration. 
 					</aside>
 				</section>
 				<section>
@@ -440,6 +442,7 @@ class MyAppComponent {
 						<li class="fragment"><a href="http://threejs.org/examples/" target="_blank">Three.js Examples</a></li>
 						<li class="fragment"><a href="http://www.amazon.com/Programming-Applications-HTML5-WebGL-Visualization/dp/1449362966/ref=asap_bc?ie=UTF8" target="_blank">Programming 3D Applications with HTML5 and WebGL</a></li>
 						<li class="fragment"><a href="http://angularconnect.com/" target="_blank">AngularConnect</a></li>
+						<li class="fragment"><a href="https://angular.io/" target="_blank">Angular.io</a></li>
 					</ul>
 					<aside class="notes">
 				
