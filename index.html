@@ -268,11 +268,25 @@ group.rotation.y += 0.1;
 
 				<!-- AngularJS -->
 				<section>
-					<h3>Why AngularJS?</h3>
+					<h3>What is AngularJS</h3>
+					<ul>
+						<li>Controllers</li>
+						<li>Directives</li>
+						<li>Services</li>
+					</ul>
+					<p><a href="" target="_blank"></a></p>
+					<aside class="notes">
+				
+					</aside>
+				</section>
+				<section>
+					<h3></h3>
 					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
-<body ng-app="myApp">
-		<p>1 + 2 = {{ 1 + 2 }}</p>
-</body>
+
+<div ng-app>
+	<p>1 + 2 = {{ 1 + 2 }}</p>
+</div>
+
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
@@ -283,8 +297,8 @@ group.rotation.y += 0.1;
 						<h3></h3>
 						<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
 <div ng-app>
-		<input type="text" ng-model="name"/> 
-	 <p>Hello {{name}}</p>
+	<input type="text" ng-model="name"/> 
+	<p>Hello {{name}}</p>
 </div>
 						</pre></code>
 						<p><a href="http://jsfiddle.net/yonet3d/42y48ewm/9/" target="_blank">jsFiddle</a></p>
@@ -295,11 +309,11 @@ group.rotation.y += 0.1;
 					<section>
 						<h3>Controllers</h3>
 						<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
-<body ng-app="myApp">
+<div ng-app="myApp">
 	<div ng-controller="mainController">
 		<p>The answer is,{{ meaning }}</p>
-	</div>	
-</body>
+	</div>
+</div>
 						</pre></code>
 
 						<p><a href="" target="_blank"></a></p>
@@ -312,16 +326,15 @@ group.rotation.y += 0.1;
 					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
 var app = angular.module("firstApp", []);
 app.controller("MainController", function($scope){
-    //initial value
+		//initial value
 		$scope.meaning = 42;
-        
-    $scope.changeMeaning = function(){
+
+		$scope.changeMeaning = function(){
 			$scope.meaning = Math.floor(Math.random() * 42);
-    };
-        		
+		};
 })
 					</pre></code>
-					<p><a href="http://jsfiddle.net/yonet3d/42y48ewm/16/" target="_blank">jsFiddle</a></p>
+					<p><a href="http://jsfiddle.net/yonet3d/42y48ewm/18/" target="_blank">jsFiddle</a></p>
 					<aside class="notes">
 				Controllers Set up the initial state of the $scope object.
 			Add behavior to the $scope object.
@@ -337,7 +350,7 @@ angular.module('myApp', [])
 			restrict: 'E',
 			template:'Name: {{customer.name}} Address: {{customer.address}}'
 		}
-})
+});
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
 					<aside class="notes">
@@ -375,7 +388,6 @@ angular.module('myApp', [])
 					<h3>Linking function</h3>
 					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
 angular.module('myApp', [])
-
 	.directive('globe', function() {
 		return {
 			restrict: 'E',
@@ -408,9 +420,9 @@ angular.module('myApp', [])
 @Component({selector: 'globe'})
 @View({template: '<h1>Hi {{ word.name }}</h1>'})
 class MyAppComponent {
-  constructor() {
-    this.word = {name: 'earth'};
-  }
+	constructor() {
+		this.word = {name: 'earth'};
+	}
 }
 					</pre></code>
 					<p><a href="" target="_blank"></a></p>
@@ -421,9 +433,7 @@ class MyAppComponent {
 				<!-- /AngularJS -->
 				<section>
 					<h3>Resources</h3>
-					<pre><code data-trim contenteditable style="font-size: 20px; padding: 15px;">
-				
-					</pre></code>
+
 					<ul>
 						<li class="fragment"><a href="http://threejs.org/docs/" target="_blank">Three.js Docs</a></li>
 						<li class="fragment"><a href="http://threejs.org/examples/" target="_blank">Three.js Examples</a></li>
